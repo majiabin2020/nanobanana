@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const fileInput = document.getElementById('image-upload');
     const thumbnailsContainer = document.getElementById('thumbnails-container');
     const promptInput = document.getElementById('prompt-input');
-    // 使用硬编码的API key
+    // 使用硬编码的API key - 在生产环境中替换为您的有效密钥
     const DEFAULT_API_KEY = "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";
     const generateBtn = document.getElementById('generate-btn');
     const btnText = generateBtn.querySelector('.btn-text');
