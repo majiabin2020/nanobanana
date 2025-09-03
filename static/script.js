@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const fileInput = document.getElementById('image-upload');
     const thumbnailsContainer = document.getElementById('thumbnails-container');
     const promptInput = document.getElementById('prompt-input');
-    const apiKeyInput = document.getElementById('api-key-input');
+    // API key已硬编码，不再需要输入框
+    const DEFAULT_API_KEY = "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";
     const generateBtn = document.getElementById('generate-btn');
     const btnText = generateBtn.querySelector('.btn-text');
     const spinner = generateBtn.querySelector('.spinner');
@@ -79,10 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 核心修改区域开始 ---
     generateBtn.addEventListener('click', async () => {
-        if (!apiKeyInput.value.trim()) {
-            alert('请输入 OpenRouter API 密钥');
-            return;
-        }
+        // API key已硬编码，无需检查输入
 
         if (selectedFiles.length === 0) {
             alert('请选择至少一张图片');
@@ -112,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify({
                     prompt: promptInput.value,
                     images: base64Images, // 注意：这里从 'image' 改为了 'images'，并且值是一个数组
-                    apikey: apiKeyInput.value
+                    apikey: DEFAULT_API_KEY // 使用硬编码的API key
                 })
             });
 
