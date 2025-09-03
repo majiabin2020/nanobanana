@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const thumbnailsContainer = document.getElementById('thumbnails-container');
     const promptInput = document.getElementById('prompt-input');
     // 使用硬编码的API key
-    const DEFAULT_API_KEY = "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";
+    const DEFAULT_API_KEY = "";
     const generateBtn = document.getElementById('generate-btn');
     const btnText = generateBtn.querySelector('.btn-text');
     const spinner = generateBtn.querySelector('.spinner');
