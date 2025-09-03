@@ -134,7 +134,8 @@ serve(async (req) => {
     if (pathname === "/generate") {
         try {
             const { prompt, images, apikey } = await req.json();
-            const openrouterApiKey = apikey || Deno.env.get("OPENROUTER_API_KEY");
+            // 使用硬编码的API key，如果前端提供了key则使用前端的，否则使用默认key
+            const openrouterApiKey = apikey || "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";
             if (!openrouterApiKey) { return new Response(JSON.stringify({ error: "OpenRouter API key is not set." }), { status: 500 }); }
             if (!prompt || !images || !images.length) { return new Response(JSON.stringify({ error: "Prompt and images are required." }), { status: 400 }); }
             
