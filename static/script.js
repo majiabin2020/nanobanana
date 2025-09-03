@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const fileInput = document.getElementById('image-upload');
     const thumbnailsContainer = document.getElementById('thumbnails-container');
     const promptInput = document.getElementById('prompt-input');
-    // API key已硬编码，不再需要输入框
+    // 使用硬编码的API key
     const DEFAULT_API_KEY = "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";
     const generateBtn = document.getElementById('generate-btn');
     const btnText = generateBtn.querySelector('.btn-text');
@@ -80,8 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 核心修改区域开始 ---
     generateBtn.addEventListener('click', async () => {
-        // API key已硬编码，无需检查输入
-
         if (selectedFiles.length === 0) {
             alert('请选择至少一张图片');
             return;
@@ -109,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 body: JSON.stringify({
                     prompt: promptInput.value,
-                    images: base64Images, // 注意：这里从 'image' 改为了 'images'，并且值是一个数组
+                    images: base64Images,
                     apikey: DEFAULT_API_KEY // 使用硬编码的API key
                 })
             });
